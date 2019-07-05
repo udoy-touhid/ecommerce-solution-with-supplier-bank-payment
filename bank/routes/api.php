@@ -17,3 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 	return $request->user();
 });
 Route::any('/v1/make_payment', 'ApiController@make_payment');
+Route::any('/v1/get_all_balance', 'ApiController@get_all_balance');
