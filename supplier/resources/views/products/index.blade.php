@@ -26,6 +26,7 @@ tr:nth-child(even) {
     <th>description</th>
     <th>image</th>
     <th>Quantity</th>
+    <th>Price</th>
     <th>delete</th>
   </tr>
 
@@ -36,12 +37,13 @@ tr:nth-child(even) {
 
     <td><img height="100px" width="100px" src="{{$product->image_url}}" ></td>
     <td>{{$product->quantity}}</td>
-    
+
+    <td>{{$product->price}}</td>
     <td><a href="/products/{{$product->id}}/delete">delete</a> </td>
 
   </tr>
   @endforeach
- 
+
 </table>
 <br><br><br><br>
 <hr>
@@ -61,6 +63,10 @@ tr:nth-child(even) {
 
     <label for="lname">Quantity</label><br>
     <input required type="number"   step="any" min="0"   name="quantity" placeholder="like: 20"><br>
+
+
+    <label for="lname">Price</label><br>
+    <input required type="number"   step="any" min="0"   name="price" placeholder="like: 20"><br>
 
     <input type="submit" value="Submit">
   </form>

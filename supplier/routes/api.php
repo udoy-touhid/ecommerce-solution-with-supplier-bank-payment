@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/v1/products', 'ApiController@products_V1');
 Route::any('/v1/purchase', 'ApiController@sellProducts');
+Route::any('/v1/productListDetails', 'ApiController@getProductsDetails');

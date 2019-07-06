@@ -18,7 +18,7 @@ class ApiController extends Controller {
 		$quantity = $request->input('quantity');
 
 		if (!isset($products) || !isset($quantity)) {
-			return "Unsuccessful";
+			return "products or quantity is not set";
 		}
 
 		//get payment & update bank balance
@@ -44,7 +44,7 @@ class ApiController extends Controller {
 
 		for ($i = 0; $i < count($var_product); $i++) {
 
-			echo $var_product[$i] . "...." . $var_quantity[$i];
+			//echo $var_product[$i] . "...." . $var_quantity[$i] . "<br>";
 			$this->fixProductQuantity($var_product[$i], $var_quantity[$i]);
 
 		}
@@ -81,6 +81,14 @@ class ApiController extends Controller {
 		$response = $request->getBody();
 
 		return $response;
+	}
+
+	public function getProductsDetails(Request $request) {
+		$products = $request->input('products');
+		$var_product = explode(";;", $products);
+
+		$res = \App\Product::whereIn('id', $var_product)->get();
+		return $res;
 	}
 
 }

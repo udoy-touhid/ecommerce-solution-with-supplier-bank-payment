@@ -72,7 +72,7 @@ class ApiController extends Controller {
 		$sender = $this->check_account_credentials($account_from, $secret);
 
 		if ($sender == null || $sender->count() <= 0) {
-			return 'Invalid Sender Account Info(card name/number/secret dont match)';
+			return 'Invalid Sender Account(' . $account_from . '===' . $secret . ') Info(card name/number/secret dont match)';
 		}
 
 		$receiver = $this->check_receiver($account_to);

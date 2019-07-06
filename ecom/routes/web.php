@@ -17,3 +17,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/account', 'AccountController@index');
+Route::post('/order', 'AccountController@order');
